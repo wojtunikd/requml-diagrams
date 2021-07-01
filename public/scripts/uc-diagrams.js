@@ -1,5 +1,3 @@
-console.log(orderUseCases)
-
 const uc = JSON.parse(orderUseCases);
 
 for(const [index, actorUseCases] of uc.entries()) {
@@ -26,12 +24,12 @@ for(const [index, actorUseCases] of uc.entries()) {
 	const actorIcon = document.querySelector("#actorIcon");
 
 	const actorIconInstance = new fabric.Image(actorIcon, {
-		originX: 'center',
-		originY: 'bottom'
+		originX: "center",
+		originY: "bottom"
 	});
 	
 	const actorText = new fabric.Text(actorUseCases["actor"], {
-		fontFamily: 'Calibri',
+		fontFamily: "Calibri",
 		fontSize: 13,
 		fill: "black",
 		textAlign: 'center',
