@@ -15,7 +15,9 @@ for(const [index, actorUseCases] of uc.entries()) {
 	
 	const diagramTitle = document.createElement("h2");
     diagramTitle.setAttribute("aria-control", `useCaseDiagram${index}`);
-	diagramTitle.innerHTML = `Use Case Diagram ${index+1} for ${actorUseCases["actor"]}`;
+	diagramTitle.innerHTML = `Use Case Diagram ${uc.length - index} for ${actorUseCases["actor"]}`;
+
+    diagramTitle.addEventListener("click", event => initiateCanvasDownload(event));
 	
 	document.querySelector("#canvas-start").after(diagramTitle);
 	
@@ -92,12 +94,12 @@ for(const [index, actorUseCases] of uc.entries()) {
 	}
 }
 
-document.querySelector("h2").addEventListener("click", event => {
+const initiateCanvasDownload = event => {
     const downloadTarget = event.target.getAttribute("aria-control");
 
 	const link = document.getElementById("link");
 	link.setAttribute("download", `${downloadTarget}.png`);
 	link.setAttribute("href", document.querySelector(`#${downloadTarget}`).toDataURL("image/png", 1.0).replace("image/png", "image/octet-stream"));
 	link.click();
-})
+}
 
