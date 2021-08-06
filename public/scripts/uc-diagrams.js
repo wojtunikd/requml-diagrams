@@ -64,10 +64,12 @@ for(const [index, actorUseCases] of uc.entries()) {
 			ucText.splice(i, 0, "\n");
 		}
 
-		const useCaseText = new fabric.Text(ucText.join(" "), {
+        const finalText = ucText.join(" ");
+
+		const useCaseText = new fabric.Text(finalText, {
 			width: 240,
 			fontFamily: 'Calibri',
-			fontSize: 14,
+			fontSize: finalText.length > 100 ? 11 : 13,
 			fill: "white",
 			textAlign: 'center',
 			top: -6,
