@@ -8,6 +8,8 @@ router.use("/uc/:ucParam", getUseCaseDiagramsPage);
 
 //router.use("/class/:classParam", omniRoutes);
 
-//router.use("/", (req, res) => res.redirect("http://requml.co.uk/"));
+router.use("/error", (req, res) => res.render("error"));
+
+router.use("/", (req, res) => res.redirect("https://requml.co.uk/"));
 
 module.exports = router;

@@ -94,6 +94,10 @@ body {
         justify-content: space-evenly;
     }
 
+    .welcome-graphic {
+        padding: 3rem;
+    }
+
     .welcome-graphic img {
         width: 40vw;
     }
