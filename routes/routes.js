@@ -1,12 +1,12 @@
 const express = require("express");
 
-const { getUseCaseDiagramsPage } = require("../controllers/diagrams");
+const { getUseCaseDiagramsPage, getClassDiagramPage } = require("../controllers/diagrams");
 
 const router = express.Router();
 
 router.use("/uc/:ucParam", getUseCaseDiagramsPage);
 
-//router.use("/class/:classParam", omniRoutes);
+router.use("/class/:classParam", getClassDiagramPage);
 
 router.use("/error", (req, res) => res.render("error"));
 

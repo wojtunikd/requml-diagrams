@@ -1,9 +1,9 @@
 const classes = JSON.parse(orderClasses);
 
 const diagramCanvas = document.createElement("canvas");
-diagramCanvas.width = 1600;
-diagramCanvas.height = 2000;
-diagramCanvas.style.margin = "2rem";
+diagramCanvas.width = 1405;
+diagramCanvas.height = 1200;
+diagramCanvas.style.margin = "1rem";
 diagramCanvas.id = `classDiagramUML`;
 
 document.querySelector("#canvas-start").after(diagramCanvas);
@@ -19,78 +19,114 @@ document.querySelector("#canvas-start").after(diagramTitle);
 const canvas = new fabric.Canvas(`classDiagramUML`);
 
 for(const [index, element] of classes.entries()) {
-	
-    // TODO Create three rect and group them, put text into them for each class
 
-	const actorIconInstance = new fabric.Image(actorIcon, {
-		originX: "center",
-		originY: "bottom"
-	});
+	const classNameRect = new fabric.Rect({
+        fill: "white",
+        width: 150,
+        height: 25,
+        objectCaching: false,
+        stroke: "black",
+        strokeWidth: 2,
+        originX: 'center',
+		originY: 'center'
+    });
+
+    const className = element.name.length > 25 ? element.name.substr(0, 25) + "..." : element.name;
 	
-	const actorText = new fabric.Text(actorUseCases["actor"], {
+	const classNameText = new fabric.Text(className, {
 		fontFamily: "Calibri",
-		fontSize: 13,
+		fontSize: 12,
 		fill: "black",
 		textAlign: 'center',
 		originX: 'center',
-		originY: 'top'
+		originY: 'center'
 	});
 	
-	const actorGroup = new fabric.Group([actorIconInstance, actorText], {
-		left: 5,
-		top: height/2
+	const classNameGroup = new fabric.Group([classNameRect, classNameText], {
+		left: 0,
+		top: 0
+	});
+
+    let attributes = "";
+    let attributesCount = 1;
+
+    if(!!element.attributes) {
+        attributesCount = element.attributes.length;
+        
+        for(const attribute of element.attributes) {
+            attributes = attributes + attribute + "\n"
+        }
+    }
+
+    const classAttrRect = new fabric.Rect({
+        fill: "white",
+        width: 150,
+        height: 30 * attributesCount,
+        objectCaching: false,
+        stroke: "black",
+        strokeWidth: 2,
+        originX: 'center',
+		originY: 'center'
+    });
+	
+	const classAttrText = new fabric.Text(attributes, {
+        top: 3,
+		fontFamily: "Calibri",
+		fontSize: 12,
+		fill: "black",
+		textAlign: 'center',
+		originX: 'center',
+		originY: 'center'
 	});
 	
-	canvas.add(actorGroup);
+	const classAttrGroup = new fabric.Group([classAttrRect, classAttrText], {
+		left: 0,
+		top: 25
+	});
+
+    let methods = "";
+    let methodsCount = 1;
+
+    if(!!element.methods) {
+        methodsCount = element.methods.length;
+        
+        for(const method of element.methods) {
+            methods = methods + method + "\n"
+        }
+    }
+
+    const classMethodsRect = new fabric.Rect({
+        fill: "white",
+        width: 150,
+        height: 30 * methodsCount,
+        objectCaching: false,
+        stroke: "black",
+        strokeWidth: 2,
+        originX: 'center',
+		originY: 'center'
+    });
 	
-	const actorCoords = actorGroup._getCoords();
+	const classMethodsText = new fabric.Text(methods, {
+        top: 3,
+		fontFamily: "Calibri",
+		fontSize: 12,
+		fill: "black",
+		textAlign: 'center',
+		originX: 'center',
+		originY: 'center'
+	});
 	
-	for(const [i, useCase] of actorUseCases["useCases"].entries()) {
-		const useCaseBubble = new fabric.Ellipse({
-			fill: "#0c7cbb",
-			rx: 130,
-			ry: 50,
-			hasRotatingPoint: false,
-			originX: 'center',
-			originY: 'center'
-		});
-		
-		const ucText = useCase.split(" ");
-		
-		for(let i=0; i < ucText.length; i+=5) {
-			ucText.splice(i, 0, "\n");
-		}
+	const classMethodsGroup = new fabric.Group([classMethodsRect, classMethodsText], {
+		left: 0,
+		top: -5 + (30 * attributesCount) + (30 * methodsCount)
+	});
 
-        const finalText = ucText.join(" ");
-
-		const useCaseText = new fabric.Text(finalText, {
-			width: 240,
-			fontFamily: 'Calibri',
-			fontSize: finalText.length > 100 ? 11 : 13,
-			fill: "white",
-			textAlign: 'center',
-			top: -6,
-			originX: 'center',
-			originY: 'center',
-			breakWords: true
-
-		});
-
-		const useCaseGroup = new fabric.Group([useCaseBubble, useCaseText], {
-			left: i%2 === 0 ? 300 : 620,
-			top: eval(10 + i*100)
-		});
-
-		useCaseGroup.hasControls = false;
-		useCaseGroup.station = true;
-
-		canvas.add(useCaseGroup);
-		const ucGroupCoords = useCaseGroup._getCoords();
-		
-		canvas.add(new fabric.Line([actorCoords.tr.x, (actorCoords.tr.y + i*12), ucGroupCoords.tl.x, (ucGroupCoords.tl.y + ucGroupCoords.bl.y)/2], {
-			stroke: "#000a26"
-		}));
-	}
+    const classArea = new fabric.Group([classNameGroup, classAttrGroup, classMethodsGroup], {
+		left: 20 + ((index % 6) * 220),
+		top: 20 + 220 * (Math.floor(index / 6))
+	});
+	
+	canvas.add(classArea);
 }
 
 const initiateCanvasDownload = event => {
