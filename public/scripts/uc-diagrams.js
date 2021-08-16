@@ -1,5 +1,7 @@
 const uc = JSON.parse(orderUseCases);
 
+console.log(uc);
+
 for(const [index, actorUseCases] of uc.entries()) {
 	let height = actorUseCases["useCases"].length * 110;
 
@@ -58,7 +60,15 @@ for(const [index, actorUseCases] of uc.entries()) {
 			originY: 'center'
 		});
 		
-		const ucText = useCase.split(" ");
+		const ucText = useCase.useCase.split(" ");
+        const coreWords = useCase.core;
+
+        for(let i=0; i < ucText.length; i++) {
+            if(coreWords.includes(i)) {
+                const wordToHighlight = ucText[i];
+                ucText.splice(i, 1, `${wordToHighlight.toUpperCase()}`);
+            }
+		}
 		
 		for(let i=0; i < ucText.length; i+=5) {
 			ucText.splice(i, 0, "\n");
