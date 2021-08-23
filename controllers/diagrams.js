@@ -4,7 +4,7 @@ exports.getUseCaseDiagramsPage = async (req, res) => {
     let response;
 
     try {
-        response = await axios.get(`http://localhost:3333/api/orders/uc/${req.params.ucParam}`);
+        response = await axios.get(`https://requml-node.herokuapp.com/api/orders/uc/${req.params.ucParam}`);
     } catch(error) {
         console.log(error);
         return res.redirect("/error");
@@ -25,7 +25,7 @@ exports.getClassDiagramPage = async (req, res) => {
     let response;
 
     try {
-        response = await axios.get(`http://localhost:3333/api/orders/class/${req.params.classParam}`);
+        response = await axios.get(`https://requml-node.herokuapp.com/api/orders/class/${req.params.classParam}`);
     } catch(error) {
         console.log(error);
         return res.redirect("/error");
