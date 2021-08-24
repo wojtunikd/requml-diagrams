@@ -4,7 +4,7 @@ const umlGroups = [];
 
 const diagramCanvas = document.createElement("canvas");
 diagramCanvas.width = 1405;
-diagramCanvas.height = 1200;
+diagramCanvas.height = 520 * (classes.classes.length / 5);
 diagramCanvas.style.margin = "1rem";
 diagramCanvas.id = `classDiagramUML`;
 
