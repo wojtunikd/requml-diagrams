@@ -34,9 +34,9 @@ for(const [index, actorUseCases] of uc.entries()) {
 		fontFamily: "Calibri",
 		fontSize: 13,
 		fill: "black",
-		textAlign: 'center',
-		originX: 'center',
-		originY: 'top'
+		textAlign: "center",
+		originX: "center",
+		originY: "top"
 	});
 	
 	const actorGroup = new fabric.Group([actorIconInstance, actorText], {
@@ -54,8 +54,8 @@ for(const [index, actorUseCases] of uc.entries()) {
 			rx: 130,
 			ry: 50,
 			hasRotatingPoint: false,
-			originX: 'center',
-			originY: 'center'
+			originX: "center",
+			originY: "center"
 		});
 		
 		const ucText = useCase.useCase.split(" ");
@@ -79,10 +79,10 @@ for(const [index, actorUseCases] of uc.entries()) {
 			fontFamily: 'Calibri',
 			fontSize: finalText.length > 100 ? 11 : 13,
 			fill: "white",
-			textAlign: 'center',
+			textAlign: "center",
 			top: -6,
-			originX: 'center',
-			originY: 'center',
+			originX: "center",
+			originY: "center",
 			breakWords: true
 
 		});
@@ -103,6 +103,11 @@ for(const [index, actorUseCases] of uc.entries()) {
 		}));
 	}
 }
+
+/*
+    Image canvas download inspired by the solution of Thomas Wagenaar
+    https://stackoverflow.com/questions/10673122/how-to-save-canvas-as-an-image-with-canvas-todataurl
+*/
 
 const initiateCanvasDownload = event => {
     const downloadTarget = event.target.getAttribute("aria-control");

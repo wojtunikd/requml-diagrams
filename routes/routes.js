@@ -4,11 +4,11 @@ const { getUseCaseDiagramsPage, getClassDiagramPage } = require("../controllers/
 
 const router = express.Router();
 
-router.use("/uc/:ucParam", getUseCaseDiagramsPage);
+router.get("/uc/:ucParam", getUseCaseDiagramsPage);
 
-router.use("/class/:classParam", getClassDiagramPage);
+router.get("/class/:classParam", getClassDiagramPage);
 
-router.use("/error", (req, res) => res.render("error"));
+router.get("/error", (req, res) => res.render("error"));
 
 router.use("/", (req, res) => res.redirect("https://requml.co.uk/"));
 

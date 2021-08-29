@@ -34,8 +34,8 @@ for(const [index, element] of classes.classes.entries()) {
         objectCaching: false,
         stroke: "black",
         strokeWidth: 2,
-        originX: 'center',
-		originY: 'center'
+        originX: "center",
+		originY: "center"
     });
 
     const className = element.name.length > 25 ? element.name.substr(0, 25) + "..." : element.name;
@@ -45,9 +45,9 @@ for(const [index, element] of classes.classes.entries()) {
 		fontSize: 12,
         fontWeight: "bold",
 		fill: "black",
-		textAlign: 'center',
-		originX: 'center',
-		originY: 'center'
+		textAlign: "center",
+		originX: "center",
+		originY: "center"
 	});
 	
 	const classNameGroup = new fabric.Group([classNameRect, classNameText], {
@@ -97,8 +97,8 @@ for(const [index, element] of classes.classes.entries()) {
         objectCaching: false,
         stroke: "black",
         strokeWidth: 2,
-        originX: 'center',
-		originY: 'center'
+        originX: "center",
+		originY: "center"
     });
 	
 	const classAttrText = new fabric.Text(attributes, {
@@ -106,9 +106,9 @@ for(const [index, element] of classes.classes.entries()) {
 		fontFamily: "Calibri",
 		fontSize: 12,
 		fill: "black",
-		textAlign: 'center',
-		originX: 'center',
-		originY: 'center'
+		textAlign: "center",
+		originX: "center",
+		originY: "center"
 	});
 	
 	const classAttrGroup = new fabric.Group([classAttrRect, classAttrText], {
@@ -138,8 +138,8 @@ for(const [index, element] of classes.classes.entries()) {
         objectCaching: false,
         stroke: "black",
         strokeWidth: 2,
-        originX: 'center',
-		originY: 'center'
+        originX: "center",
+		originY: "center"
     });
 	
 	const classMethodsText = new fabric.Text(methods, {
@@ -147,9 +147,9 @@ for(const [index, element] of classes.classes.entries()) {
 		fontFamily: "Calibri",
 		fontSize: 12,
 		fill: "black",
-		textAlign: 'center',
-		originX: 'center',
-		originY: 'center'
+		textAlign: "center",
+		originX: "center",
+		originY: "center"
 	});
 	
 	const classMethodsGroup = new fabric.Group([classMethodsRect, classMethodsText], {
@@ -189,8 +189,8 @@ for(const relationship of relationships) {
         const coords = [(sourceClass.aCoords.bl.x + sourceClass.aCoords.br.x + Math.random() * 200)/2, sourceClass.aCoords.br.y, (targetClass.aCoords.bl.x + targetClass.aCoords.br.x + Math.random() * 200)/2, targetClass.aCoords.br.y]
 
         const associationLine = new fabric.Line(coords, {
-            fill: 'black',
-            stroke: 'black',
+            fill: "black",
+            stroke: "black",
             strokeWidth: 1
         });
 
@@ -202,8 +202,10 @@ for(const umlClass of umlGroups) {
     canvas.add(umlClass[1]);
 }
 
-console.log(relationships)
-console.log(umlGroups)
+/*
+    Image canvas download inspired by the solution of Thomas Wagenaar
+    https://stackoverflow.com/questions/10673122/how-to-save-canvas-as-an-image-with-canvas-todataurl
+*/
 
 const initiateCanvasDownload = event => {
     const downloadTarget = event.target.getAttribute("aria-control");

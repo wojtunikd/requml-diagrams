@@ -1,5 +1,5 @@
 :root {
-    --welcomeFont: 'Caviar Dreams', sans-serif;
+    --welcomeFont: "Caviar Dreams", sans-serif;
 }
 
 body {
@@ -54,7 +54,7 @@ body {
 }
 
 .welcome-window p {
-    font-family: 'Questrial', sans-serif;
+    font-family: "Questrial", sans-serif;
     font-size: 1rem;
 }
 
@@ -75,7 +75,7 @@ body {
 }
 
 .diagrams-area h2 {
-    font-family: 'Questrial', sans-serif;
+    font-family: "Questrial", sans-serif;
     transition: 0.15s ease-in-out;
     cursor: pointer;
 }
