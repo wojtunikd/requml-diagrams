@@ -17,6 +17,7 @@
 		<meta name="theme-color" content="#000000" />
 	</head>
 	<body>
+        <script>const clientClasses = <%- classes %>;</script>
 		<div class="welcome-window">
 			<div class="welcome-description">
 				<img alt="Logo" src="/media/logo.png" />
@@ -37,9 +38,6 @@
 		</div>
 		<div class="diagrams-area">
 			<a id="link"></a>
-            <div class="data">
-                <input type="hidden" id="classes" value="<%= classes %>" >
-            </div>
 			<div id="canvas-start"></div>
 		</div>
 		<script src="/scripts/fabric.min.js"></script>
