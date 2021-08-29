@@ -1,4 +1,6 @@
-const classes = JSON.parse(orderClasses);
+const classes = JSON.parse(document.querySelector("#classes").value);
+document.querySelector("#classes").remove();
+
 const relationships = [];
 const umlGroups = [];
 

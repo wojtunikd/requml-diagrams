@@ -1,4 +1,5 @@
-const uc = JSON.parse(orderUseCases);
+const uc = JSON.parse(document.querySelector("#usecases").value);
+document.querySelector("#usecases").remove();
 
 for(const [index, actorUseCases] of uc.entries()) {
 	let height = actorUseCases["useCases"].length * 110;

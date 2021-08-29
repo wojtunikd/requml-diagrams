@@ -15,9 +15,6 @@
 		<link rel="icon" href="/media/favicon.svg" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<meta name="theme-color" content="#000000" />
-		<script>
-			const orderClasses = "<%- classes %>";
-		</script>
 	</head>
 	<body>
 		<div class="welcome-window">
@@ -40,6 +37,9 @@
 		</div>
 		<div class="diagrams-area">
 			<a id="link"></a>
+            <div class="data">
+                <input type="hidden" id="classes" value="<%= classes %>" >
+            </div>
 			<div id="canvas-start"></div>
 		</div>
 		<script src="/scripts/fabric.min.js"></script>
