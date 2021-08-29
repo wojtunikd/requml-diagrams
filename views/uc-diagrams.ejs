@@ -1,34 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-	    <meta charset="UTF-8">
-        <title>ReqUML - UML Use Case Diagrams</title>
-        <link rel="stylesheet" href="/styles.css">
-        <link href="https://fonts.cdnfonts.com/css/caviar-dreams" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Questrial&display=swap" rel="stylesheet">
-        <link rel="icon" href="/media/favicon.svg" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#000000" />
-        <script>const orderUseCases = '<%- useCases %>';</script>
+	<head>
+		<meta charset="UTF-8" />
+		<title>ReqUML - UML Use Case Diagrams</title>
+		<link rel="stylesheet" href="/styles.css" />
+		<link
+			href="https://fonts.cdnfonts.com/css/caviar-dreams"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="icon" href="/media/favicon.svg" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#000000" />
+		<script>
+			const orderUseCases = "<%- useCases %>";
+		</script>
 	</head>
 	<body>
-        <img src="/media/actor-sm.png" id="actorIcon">
-        <div class="welcome-window">
-            <div class="welcome-description">
-                <img alt="Logo" src="/media/logo.png">
-                <h1>ReqUML</h1>
-                <h2>Automated UML Requirements Analysis</h2>
-                <p>Your UML Use Case Diagrams have been generated for you by ReqUML automatically and are ready for preview and download. To <b>download</b> a diagram, <b>press on its title</b>. You can rearrange the elements on each diagram freely so that they suit all your needs.</p>
-            </div>
-            <div class="welcome-graphic">
-                <!-- Royalty free graphics from https://2.flexiple.com/scale/all-illustrations -->
-                <img src="/media/mindmap.svg" alt="Diagram">
-            </div>
-        </div>
-        <div class="diagrams-area">
-            <a id="link"></a>
-		    <div id="canvas-start"></div>
-        </div>
+		<img src="/media/actor-sm.png" id="actorIcon" />
+		<div class="welcome-window">
+			<div class="welcome-description">
+				<img alt="Logo" src="/media/logo.png" />
+				<h1>ReqUML</h1>
+				<h2>Automated UML Requirements Analysis</h2>
+				<p>
+					Your UML Use Case Diagrams have been generated for you by
+					ReqUML automatically and are ready for preview and download.
+					To <b>download</b> a diagram, <b>press on its title</b>. You
+					can rearrange the elements on each diagram freely so that
+					they suit all your needs.
+				</p>
+			</div>
+			<div class="welcome-graphic">
+				<!-- Royalty free graphics from https://2.flexiple.com/scale/all-illustrations -->
+				<img src="/media/mindmap.svg" alt="Diagram" />
+			</div>
+		</div>
+		<div class="diagrams-area">
+			<a id="link"></a>
+			<div id="canvas-start"></div>
+		</div>
 		<script src="/scripts/fabric.min.js"></script>
 		<script src="/scripts/uc-diagrams.js"></script>
 	</body>
