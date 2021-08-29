@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", event => {
     const classes = clientClasses;
-    document.querySelector("#classes").remove();
 
     const relationships = [];
     const umlGroups = [];
