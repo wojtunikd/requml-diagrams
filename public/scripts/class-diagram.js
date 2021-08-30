@@ -5,7 +5,7 @@ const umlGroups = [];
 
 const diagramCanvas = document.createElement("canvas");
 diagramCanvas.width = 1405;
-diagramCanvas.height = 520 * (classes.classes.length / 5);
+diagramCanvas.height = 520 + 520 * Math.floor(classes.classes.length / 5);
 diagramCanvas.style.margin = "1rem";
 diagramCanvas.id = `classDiagramUML`;
 
@@ -22,7 +22,6 @@ document.querySelector("#canvas-start").after(diagramTitle);
 const canvas = new fabric.Canvas(`classDiagramUML`);
 
 for(const [index, element] of classes.classes.entries()) {
-    console.log(element)
     if(!!element.relationships) {
         if(element.relationships.length > 0) {
             relationships.push([element.name, element.relationships])
